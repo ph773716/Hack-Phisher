@@ -1,10 +1,13 @@
 {
-  "name": "phish-site",
+  "name": "hack-phisher",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Instagram-style login page clone",
+  "main": "script.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node script.js"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
   }
