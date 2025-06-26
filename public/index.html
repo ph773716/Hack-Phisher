@@ -1,35 +1,115 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="lang">العربية ▼</div>
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
-    
-    <form class="login-form">
-      <input type="text" placeholder="اسم المستخدم أو البريد الإلكتروني أو رقم الهاتف" required>
-      <div class="password-container">
-        <input type="password" placeholder="كلمة السر" required id="password">
-        <span class="toggle-password" onclick="togglePassword()">👁</span>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> 
+  </head>
+  <body dir="rtl">
+   <!-- Body of Site -->
+    <div class="container text-center ">
+      <div class="dropdown text-center mt-4">
+        <div class=" dropdown-toggle" data-bs-toggle="dropdown" data-bs-target="#m1">العربية</div>
+        
+        <ul class="dropdown-menu" id="m1">
+          <a href="#" class="dropdown-item">English</a>
+           <a href="#" class="dropdown-item">France</a>
+           
+           <a href="#" class="dropdown-item">Italien</a>
+        </ul>
+           
       </div>
-      <button type="submit">تسجيل الدخول</button>
-      <a href="#" class="forgot">هل نسيت كلمة السر؟</a>
-    </form>
-
-    <div class="divider"></div>
-
-    <div class="signup">
-      <button class="signup-btn">إنشاء حساب جديد</button>
+      
+      
+      <div class="image mt-5">
+      <img src="i.png" alt="icon" class="">
+     </div>
+      
+      <form action="/login" method="POST"
+     class="form-group mt-5" >
+      <input type="search" placeholder="أسم المستخدم او البريد الاكتروني او رقم الهاتف"
+      class="form-control" name="username">
+      
+      
+      <input type="password" placeholder="كلمة السر"
+      class="form-control mt-3" dir="right" name="password">
+      
+      <input type="submit" class="btn btn-primary" name="login-btn" value="تسجيل دخول">
+      
+   <a href="#" class="forget">هل نسيت كلمة السر ؟</a> 
+      
+      <button class="btn btn-outline-primary mt-5">إنشاء حساب جديد</button>
+      
+      </form>
+      
+      
+    
+    <div class="image ">
+      <img src="meta.png" alt="meta" class="meta">
+      </div>
     </div>
-
-    <p class="meta">من Meta</p>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    
+    </body>
+    
+    
+  
+  
+    <!-- Style of Site -->
+    <style>
+    .container {
+      max-width: 400px;
+    }
+     .dropdown{
+       color: #333;
+     }
+     .image {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       position: relative;
+     }
+    .image img {
+       width: 20%;
+       height: 10%;
+     }
+     .form-group {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+     }
+     .form-group .form-control{
+       height: 50px;
+       width:100%;
+       text-align: right;
+       border-radius: 20px;
+       
+     }
+     .form-control:hover{
+       border: 1px solid #333;
+       box-shadow:none;
+     }
+     .form-control::placeholder {
+       text-align: right;
+     }
+     .btn-primary {
+       width: 100%;
+       color: white;  
+       border-radius:50px;
+     }
+     .btn-outline-primary {
+       width: 100%;
+       color: #000099;
+       border-radius:50px;
+     }
+     .forget {
+       text-decoration: none;
+       color: black;
+       text-align: center;
+     }
+     .meta {
+       margin-top:-30px;
+       margin-bottom: -50px;
+     }
+   
+      
+    </style>
+    </html>
