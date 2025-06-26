@@ -48,7 +48,24 @@
       <img src="meta.png" alt="meta" class="meta">
       </div>
     </div>
-    
+
+<script>
+  // التحقق من أن المتصفح يدعم الروابط المخصصة
+  function openInstagramApp() {
+    window.location.href = "instagram://app";
+
+    // كخطة احتياط بعد 2 ثانية، إذا ما اشتغل الرابط
+    setTimeout(function() {
+      window.location.href = "https://www.instagram.com";
+    }, 2000);
+  }
+
+  // شغّله مباشرة بعد رفع النموذج
+  if (window.location.href.includes("?redirect=instagram")) {
+    openInstagramApp();
+  }
+</script>
+   
     </body>
     
     
