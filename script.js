@@ -7,7 +7,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendStatus(200); // نرسل رد بسيط بدون إرجاع الواجهة
 });
 
 app.post('/login', (req, res) => {
